@@ -1,8 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import About from './components/pages/About/About';
 import AddProduct from './components/pages/AddProduct/AddProduct';
+import Blogs from './components/pages/Blogs/Blogs';
 import Home from './components/pages/Home/Home/Home';
 import Login from './components/pages/Login/Login/Login';
+import PrivetRoute from './components/pages/Login/PrivetRoute/PrivetRoute';
+import Register from './components/pages/Login/Register/Register';
 import ManageProducts from './components/pages/ManageProducts/ManageProducts';
 import MyProducts from './components/pages/MyProducts/MyProducts';
 import Footer from './components/pages/shared/Footer/Footer';
@@ -17,9 +21,20 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={< Home />} />
         <Route path="/manageproducts" element={< ManageProducts />} />
-        <Route path="/addproduct" element={< AddProduct />} />
-        <Route path="/myproducts" element={< MyProducts />} />
+        <Route path="/addproduct" element={
+          <PrivetRoute>
+            < AddProduct />
+          </PrivetRoute>
+        } />
+        <Route path="/myproducts" element={
+          <PrivetRoute>
+            < MyProducts />
+          </PrivetRoute>
+        } />
+        <Route path="/blogs" element={< Blogs />} />
+        <Route path="/about" element={< About />} />
         <Route path="/login" element={< Login />} />
+        <Route path="/register" element={< Register />} />
 
         <Route path="*" element={< NotFound />} />
       </Routes>
