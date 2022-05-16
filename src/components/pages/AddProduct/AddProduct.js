@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 import auth from '../../../Firebase/Firebase.init';
 
 const AddProduct = () => {
@@ -9,13 +10,17 @@ const AddProduct = () => {
         event.preventDefault();
         const name = event.target.name.value;
         const price = event.target.price.value;
+        const quantity = event.target.quantity.value;
+        const supplyer = event.target.supplyer.value;
+        const description = event.target.description.value;
+        const img = event.target.img.value;
         console.log(name, price)
 
         const url = 'http://localhost:5000/addpd';
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({
-                name, price
+                name, price, quantity, supplyer, description, img
             }),
             headers: {
                 // 'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
@@ -27,8 +32,10 @@ const AddProduct = () => {
                 console.log(data)
                 event.target.reset();
             });
+
+        toast('Product Add Successfully');
     }
-    // img : https://i.ibb.co/Yh04YVw/3.jpg
+
 
     return (
         <div className='container'>
@@ -37,13 +44,22 @@ const AddProduct = () => {
             <div className='w-50 mx-auto'>
                 <form onSubmit={handleAddProduct}>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Product Name</label>
-                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-
+                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Product Name' />
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Price</label>
-                        <input type="text" name="price" class="form-control" id="exampleInputPassword1" />
+                        <input type="text" name="price" class="form-control" id="exampleInputPassword1" placeholder='Price' />
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="quantity" class="form-control" id="exampleInputPassword1" placeholder='Quantity' />
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="supplyer" class="form-control" id="exampleInputPassword1" placeholder='Supplyer Name' />
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="description" class="form-control" id="exampleInputPassword1" placeholder='Description' />
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="img" class="form-control" id="exampleInputPassword1" placeholder='Img Url' />
                     </div>
                     <button type="submit" class="btn btn-primary">add Product</button>
                 </form>

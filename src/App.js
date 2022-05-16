@@ -9,7 +9,6 @@ import PrivetRoute from './components/pages/Login/PrivetRoute/PrivetRoute';
 import Register from './components/pages/Login/Register/Register';
 import ManageProducts from './components/pages/ManageProducts/ManageProducts';
 import MyProducts from './components/pages/MyProducts/MyProducts';
-import Footer from './components/pages/shared/Footer/Footer';
 import Header from './components/pages/shared/Header/Header';
 import NotFound from './components/pages/shared/NotFound/NotFound';
 
@@ -38,7 +37,7 @@ function App() {
 
         <Route path="*" element={< NotFound />} />
       </Routes>
-      <Footer> </Footer>
+
     </div>
   );
 }
