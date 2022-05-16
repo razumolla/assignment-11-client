@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
 const useCar = () => {
-    const [cars, setCars] = useState([]);
+    const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('lo /service')
+        fetch('http://localhost:5000/product')
             .then(res => res.json())
-            .then(data => setCars(data));
+            .then(data => setServices(data));
     }, [])
-    return [cars, setCars]
+    return [services, setServices]
 }
 export default useCar;
