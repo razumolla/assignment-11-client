@@ -9,9 +9,6 @@ const ManageProduct = ({ service }) => {
                 <div className='service-body'>
                     <h3> {name}</h3>
                     <p>Price: $ {price}</p>
-                    <p>Quantity:  {quantity}</p>
-                    <p>Supplyer-Name: {supplyer}</p>
-                    <p><small>{description}</small></p>
                     <button className='btn btn-primary'>Delete: {name}</button>
                 </div>
             </div>
