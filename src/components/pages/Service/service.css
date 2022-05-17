@@ -1,9 +1,8 @@
 .service {
     border: 5px solid rgb(81, 134, 248);
     border-radius: 9px;
-    padding-bottom: 10px;
 }
 
 .service-body {
-    padding-left: 20px;
+    padding: 10px;
 }

@@ -11,6 +11,7 @@ import ManageProducts from './components/pages/ManageProducts/ManageProducts';
 import MyProducts from './components/pages/MyProducts/MyProducts';
 import Header from './components/pages/shared/Header/Header';
 import NotFound from './components/pages/shared/NotFound/NotFound';
+import UpdateProduct from './components/pages/UpdateProduct/UpdateProduct';
 
 function App() {
   return (
@@ -19,7 +20,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={< Home />} />
-        <Route path="/manageproducts" element={< ManageProducts />} />
+        <Route path="/manageproducts" element={
+          <PrivetRoute>
+            < ManageProducts />
+          </PrivetRoute>
+        } />
+        <Route path="/inventory/:id" element={
+          <PrivetRoute>
+            < UpdateProduct />
+          </PrivetRoute>
+        } />
         <Route path="/addproduct" element={
           <PrivetRoute>
             < AddProduct />

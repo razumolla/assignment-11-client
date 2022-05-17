@@ -10,7 +10,7 @@ const Header = () => {
     const handleSignOut = () => {
         signOut(auth);
     }
-    console.log(user);
+    // console.log(user);
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

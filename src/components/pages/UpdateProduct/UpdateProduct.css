@@ -1,0 +1,13 @@
+.productDetails {
+    align-items: center;
+    width: 60%;
+    border: 3px solid bisque;
+}
+
+.productDetails img {
+    width: 100%;
+}
+
+.productDetails-body {
+    display: flex;
+}

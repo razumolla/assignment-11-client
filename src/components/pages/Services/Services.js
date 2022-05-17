@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Service from '../Service/Service';
 import './Services.css'
 
@@ -23,6 +24,14 @@ const Services = () => {
                         </Service>)
                     }
                 </div>
+                <div className='text-center mt-3'>
+                    <Link to="/manageproducts">
+                        <button className='btn btn-info'>
+                            <h4>Manage Inventory Items</h4>
+                        </button>
+                    </Link>
+                </div>
+
             </div>
         </div>
     );
