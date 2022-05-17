@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { useNavigate, useParams } from 'react-router-dom';
 import useUpdateProduct from '../../hooks/useUpdateProduct';
 import './UpdateProduct.css'
 
 const UpdateProduct = () => {
     const { id } = useParams();
     const [service] = useUpdateProduct(id);
+    const navigate = useNavigate();
     // delevered data
     const [car, setCar] = useState({});
     useEffect(() => {
@@ -30,6 +30,8 @@ const UpdateProduct = () => {
             .then((result) => {
                 alert("Delivered One Car SuccessFully");
             });
+
+
     };
     // Update data > re-stoke quantity
     const handleUpdateStoke = event => {
@@ -51,7 +53,6 @@ const UpdateProduct = () => {
                 event.target.reset();
             })
     }
-
 
 
 
